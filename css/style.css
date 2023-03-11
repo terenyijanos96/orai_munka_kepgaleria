@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    padding: 10px;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+section button {
+    width: 50px;
+}
+
+.nagykep {
+    width: 800px;
+    height: 534px;
+    object-fit: cover;
+}
+
+.nagykep img {
+    height: 100%;
+}
+
+article {
+    display: flex;
+}
+
+article img {
+    width: 20%;
+}
+
+article img.keret {
+    border: 3px solid #fff
+}
