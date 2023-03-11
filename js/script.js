@@ -1,5 +1,5 @@
 window.addEventListener("load", init);
-const kepek = [
+const KEPEK = [
   "kepek/DSC7025.jpg",
   "kepek/DSC7365.jpg",
   "kepek/DSC7444.jpg",
@@ -7,7 +7,7 @@ const kepek = [
   "kepek/DSC73711.jpg",
 ];
 let nagykep;
-let kep_index = 0;
+let kepIndex = 0;
 
 function init() {
   nagykep = document.querySelector(".nagykep img");
@@ -16,44 +16,44 @@ function init() {
   const JOBB_GOMB = document.querySelector(".jobb");
   const GALERIA = document.querySelector("article");
 
-  BAL_GOMB.addEventListener("click", kep_hatra);
-  JOBB_GOMB.addEventListener("click", kep_elore);
+  BAL_GOMB.addEventListener("click", kepHatra);
+  JOBB_GOMB.addEventListener("click", kepElore);
 
-  kep_galeria_feltoltese(GALERIA);
+  kepGaleriaFeltoltese(GALERIA);
 }
 
-function kep_galeria_feltoltese(galeria) {
-  kepek.forEach((k) => {
+function kepGaleriaFeltoltese(galeria) {
+  KEPEK.forEach((k) => {
     let img = document.createElement("img");
     galeria.appendChild(img);
     img.src = k;
-    img.addEventListener("click", kiskep_kattint);
+    img.addEventListener("click", kiskepKattint);
   });
 }
 
-function kiskep_kattint(event) {
-  let aktual_kep = event.target.src;
-  nagykep.src = aktual_kep;
+function kiskepKattint(event) {
+  let aktualKep = event.target.src;
+  nagykep.src = aktualKep;
 
-  kep_index = kepek.indexOf(aktual_kep.match(/kepek\/[\w]+\.jpg/)[0]);
-  console.log(kep_index);
+  kepIndex = KEPEK.indexOf(aktualKep.match(/kepek\/[\w]+\.jpg/)[0]);
+  console.log(kepIndex);
 
 
 }
 
-function kep_elore() {
-  if (kep_index >= kepek.length - 1) {
-    kep_index = -1;
+function kepElore() {
+  if (kepIndex >= KEPEK.length - 1) {
+    kepIndex = -1;
   }
-  nagykep.src = kepek[++kep_index];
-  console.log(kep_index);
+  nagykep.src = KEPEK[++kepIndex];
+  console.log(kepIndex);
 }
 
-function kep_hatra() {
-  if (kep_index <= 0) {
-    kep_index = kepek.length;
+function kepHatra() {
+  if (kepIndex <= 0) {
+    kepIndex = KEPEK.length;
   }
 
-  nagykep.src = kepek[--kep_index];
-  console.log(kep_index);
+  nagykep.src = KEPEK[--kepIndex];
+  console.log(kepIndex);
 }
