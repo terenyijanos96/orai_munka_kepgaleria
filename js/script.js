@@ -18,18 +18,9 @@ function init() {
   const JOBB_GOMB = document.querySelector(".jobb");
   szamlalo = document.querySelector(".szamlalo");
 
-  BAL_GOMB.addEventListener("click", kepHatra);
-  JOBB_GOMB.addEventListener("click", kepElore);
-  window.addEventListener("keyup", (e) => {
-    switch (e.key) {
-      case "ArrowLeft":
-        kepHatra();
-        break;
-      case "ArrowRight":
-        kepElore();
-        break;
-    }
-  });
+  BAL_GOMB.addEventListener("click", kepEloreHatra);
+  JOBB_GOMB.addEventListener("click", kepEloreHatra);
+  window.addEventListener("keyup", kepEloreHatra);
 
   nagykepValtoztatasa();
   szamlaloFrissitese();
@@ -56,12 +47,26 @@ function kiskepKattint(event) {
   szamlaloFrissitese();
 }
 
-function kepElore() {
+function kepEloreHatra(event) {
+  let celpont = event.target
+  if (
+    (event.type === "click" && celpont.className === "bal") ||
+    (event.type === "keyup" && event.key === "ArrowLeft")
+  ) {
+    kepIndex = kepIndex <= 0 ? KEPEK.length - 1 : kepIndex - 1;
+  }
+
+  if (
+    (event.type === "click" && celpont.className === "jobb") ||
+    (event.type === "keyup" && event.key === "ArrowRight")
+  ) {
   kepIndex = kepIndex >= KEPEK.length - 1 ? 0 : kepIndex + 1;
-  nagykep.src = KEPEK[kepIndex];
+  }
+
+  nagykepValtoztatasa();
   szegelyekTorlese(galeria);
   galeria.children[kepIndex].classList.add("szegely");
-  szamlaloFrissitese()
+  szamlaloFrissitese();
 }
 
 function nagykepValtoztatasa(kepSrc = KEPEK[kepIndex]) {
