@@ -9,13 +9,14 @@ const KEPEK = [
 let nagykep;
 let kepIndex = 0;
 let galeria;
+let szamlalo;
 
 function init() {
   nagykep = document.querySelector(".nagykep img");
   galeria = document.querySelector("article");
   const BAL_GOMB = document.querySelector(".bal");
   const JOBB_GOMB = document.querySelector(".jobb");
-  const GALERIA = document.querySelector("article");
+  szamlalo = document.querySelector(".szamlalo")
 
   BAL_GOMB.addEventListener("click", kepHatra);
   JOBB_GOMB.addEventListener("click", kepElore);
@@ -31,6 +32,7 @@ function init() {
   });
 
   kepGaleriaFeltoltese(galeria);
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
 }
 
 function kepGaleriaFeltoltese(galeria) {
@@ -48,6 +50,7 @@ function kiskepKattint(event) {
   console.log(kepIndex);
   szegelyekTorlese(galeria)
   event.target.classList.add("szegely");
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
 }
 
 function kepElore() {
@@ -55,6 +58,7 @@ function kepElore() {
   nagykep.src = KEPEK[kepIndex];
   szegelyekTorlese(galeria)
   galeria.children[kepIndex].classList.add("szegely");
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
 }
 
 function kepHatra() {
@@ -62,6 +66,7 @@ function kepHatra() {
   nagykep.src = KEPEK[kepIndex];
   szegelyekTorlese(galeria)
   galeria.children[kepIndex].classList.add("szegely");
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
 }
 
 function szegelyekTorlese(galeria) {
