@@ -16,7 +16,7 @@ function init() {
   galeria = document.querySelector("article");
   const BAL_GOMB = document.querySelector(".bal");
   const JOBB_GOMB = document.querySelector(".jobb");
-  szamlalo = document.querySelector(".szamlalo")
+  szamlalo = document.querySelector(".szamlalo");
 
   BAL_GOMB.addEventListener("click", kepHatra);
   JOBB_GOMB.addEventListener("click", kepElore);
@@ -32,7 +32,7 @@ function init() {
   });
 
   kepGaleriaFeltoltese(galeria);
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
 }
 
 function kepGaleriaFeltoltese(galeria) {
@@ -41,6 +41,7 @@ function kepGaleriaFeltoltese(galeria) {
     galeria.appendChild(img);
     img.src = k;
     img.addEventListener("click", kiskepKattint);
+    img["draggable"] = false;
   });
 }
 
@@ -48,25 +49,25 @@ function kiskepKattint(event) {
   nagykep.src = event.target.src;
   kepIndex = KEPEK.indexOf(event.target.attributes["src"].value);
   console.log(kepIndex);
-  szegelyekTorlese(galeria)
+  szegelyekTorlese(galeria);
   event.target.classList.add("szegely");
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
 }
 
 function kepElore() {
   kepIndex = kepIndex >= KEPEK.length - 1 ? 0 : kepIndex + 1;
   nagykep.src = KEPEK[kepIndex];
-  szegelyekTorlese(galeria)
+  szegelyekTorlese(galeria);
   galeria.children[kepIndex].classList.add("szegely");
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
 }
 
 function kepHatra() {
   kepIndex = kepIndex <= 0 ? KEPEK.length - 1 : kepIndex - 1;
   nagykep.src = KEPEK[kepIndex];
-  szegelyekTorlese(galeria)
+  szegelyekTorlese(galeria);
   galeria.children[kepIndex].classList.add("szegely");
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
 }
 
 function szegelyekTorlese(galeria) {
