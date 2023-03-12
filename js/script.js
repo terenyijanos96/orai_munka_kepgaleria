@@ -38,18 +38,13 @@ function kiskepKattint(event) {
 }
 
 function kepElore() {
-  if (kepIndex >= KEPEK.length - 1) {
-    kepIndex = -1;
-  }
-  nagykep.src = KEPEK[++kepIndex];
+  kepIndex = (kepIndex >= KEPEK.length - 1) ? 0 : kepIndex + 1
+  nagykep.src = KEPEK[kepIndex];
   console.log(kepIndex);
 }
 
 function kepHatra() {
-  if (kepIndex <= 0) {
-    kepIndex = KEPEK.length;
-  }
-
-  nagykep.src = KEPEK[--kepIndex];
+  kepIndex = (kepIndex <= 0) ? KEPEK.length - 1 : kepIndex - 1
+  nagykep.src = KEPEK[kepIndex];
   console.log(kepIndex);
 }
