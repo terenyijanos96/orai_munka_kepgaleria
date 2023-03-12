@@ -1,10 +1,10 @@
 window.addEventListener("load", init);
 const KEPEK = [
-  "kepek/DSC7025.jpg",
-  "kepek/DSC7365.jpg",
-  "kepek/DSC7444.jpg",
-  "kepek/DSC7515.jpg",
-  "kepek/DSC73711.jpg",
+  "kepek/DSC7025.webp",
+  "kepek/DSC7365.webp",
+  "kepek/DSC7444.webp",
+  "kepek/DSC7515.webp",
+  "kepek/DSC73711.webp",
 ];
 let nagykep;
 let kepIndex = 0;
