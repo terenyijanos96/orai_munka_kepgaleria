@@ -32,7 +32,7 @@ function init() {
   });
 
   kepGaleriaFeltoltese(galeria);
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
+  szamlaloFrissitese()
 }
 
 function kepGaleriaFeltoltese(galeria) {
@@ -51,7 +51,6 @@ function kiskepKattint(event) {
   console.log(kepIndex);
   szegelyekTorlese(galeria);
   event.target.classList.add("szegely");
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
 }
 
 function kepElore() {
@@ -59,7 +58,7 @@ function kepElore() {
   nagykep.src = KEPEK[kepIndex];
   szegelyekTorlese(galeria);
   galeria.children[kepIndex].classList.add("szegely");
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
+  szamlaloFrissitese()
 }
 
 function kepHatra() {
@@ -67,11 +66,15 @@ function kepHatra() {
   nagykep.src = KEPEK[kepIndex];
   szegelyekTorlese(galeria);
   galeria.children[kepIndex].classList.add("szegely");
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
+  szamlaloFrissitese()
 }
 
 function szegelyekTorlese(galeria) {
   galeria.querySelectorAll("img").forEach((kep) => {
     kep.classList.remove("szegely");
   });
+}
+
+function szamlaloFrissitese() {
+  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
 }
