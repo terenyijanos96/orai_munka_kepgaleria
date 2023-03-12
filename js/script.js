@@ -36,20 +36,21 @@ function kiskepKattint(event) {
   nagykep.src = event.target.src;
   kepIndex = KEPEK.indexOf(event.target.attributes["src"].value);
   console.log(kepIndex);
+  szegelyekTorlese(galeria)
   event.target.classList.add("szegely");
 }
 
 function kepElore() {
   kepIndex = kepIndex >= KEPEK.length - 1 ? 0 : kepIndex + 1;
   nagykep.src = KEPEK[kepIndex];
-  console.log(kepIndex);
+  szegelyekTorlese(galeria)
   galeria.children[kepIndex].classList.add("szegely");
 }
 
 function kepHatra() {
   kepIndex = kepIndex <= 0 ? KEPEK.length - 1 : kepIndex - 1;
   nagykep.src = KEPEK[kepIndex];
-  console.log(kepIndex);
+  szegelyekTorlese(galeria)
   galeria.children[kepIndex].classList.add("szegely");
 }
 
