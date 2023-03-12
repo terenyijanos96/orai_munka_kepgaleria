@@ -12,6 +12,7 @@ body {
 section {
     display: flex;
     justify-content: center;
+  align-items: center;
     gap: 20px;
     margin-bottom: 10px;
 }
@@ -24,12 +25,25 @@ section {
     background: url("../kepek/jobbra-nyil.svg");
 }
 
-.bal, .jobb {
+.bal,
+.jobb {
     width: 50px;
+  height: 50px;
     border: none;
-    color:transparent;
+  color: transparent;
     background-repeat: no-repeat;
     background-position: center;
+  cursor: pointer;
+}
+
+.bal:hover,
+.jobb:hover {
+  filter: brightness(70%);
+}
+
+.bal:active,
+.jobb:active {
+  transform: scale(1.2);
 }
 
 .nagykep {
