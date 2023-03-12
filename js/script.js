@@ -51,6 +51,7 @@ function kiskepKattint(event) {
   console.log(kepIndex);
   szegelyekTorlese(galeria);
   event.target.classList.add("szegely");
+  szamlaloFrissitese();
 }
 
 function kepElore() {
