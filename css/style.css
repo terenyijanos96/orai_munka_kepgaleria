@@ -48,8 +48,13 @@ article {
 
 article img {
     width: 20%;
+    border: 3px solid transparent
 }
 
-article img.keret {
-    border: 3px solid #fff
+article img.szegely {
+    border-color: #fff
+}
+
+img {
+    user-select: none;
 }
