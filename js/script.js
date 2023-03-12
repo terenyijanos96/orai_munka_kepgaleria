@@ -4,7 +4,7 @@ const KEPEK = [
   "kepek/DSC7365.webp",
   "kepek/DSC7444.webp",
   "kepek/DSC7515.webp",
-  "kepek/DSC73711.webp",
+  "kepek/DSC73711.webp"
 ];
 let nagykep;
 let kepIndex = 0;
@@ -31,6 +31,8 @@ function init() {
     }
   });
 
+  nagykepValtoztatasa();
+  szamlaloFrissitese();
   kepGaleriaFeltoltese(galeria);
   szamlaloFrissitese()
 }
@@ -41,7 +43,7 @@ function kepGaleriaFeltoltese(galeria) {
     galeria.appendChild(img);
     img.src = k;
     img.addEventListener("click", kiskepKattint);
-    img["draggable"] = false;
+    img["draggable"] = "false";
   });
 }
 
