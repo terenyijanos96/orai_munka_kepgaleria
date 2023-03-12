@@ -64,12 +64,8 @@ function kepElore() {
   szamlaloFrissitese()
 }
 
-function kepHatra() {
-  kepIndex = kepIndex <= 0 ? KEPEK.length - 1 : kepIndex - 1;
-  nagykep.src = KEPEK[kepIndex];
-  szegelyekTorlese(galeria);
-  galeria.children[kepIndex].classList.add("szegely");
-  szamlaloFrissitese()
+function nagykepValtoztatasa(kepSrc = KEPEK[kepIndex]) {
+    nagykep.src = kepSrc 
 }
 
 function szegelyekTorlese(galeria) {
