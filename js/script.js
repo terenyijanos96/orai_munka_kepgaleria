@@ -32,13 +32,9 @@ function kepGaleriaFeltoltese(galeria) {
 }
 
 function kiskepKattint(event) {
-  let aktualKep = event.target.src;
-  nagykep.src = aktualKep;
-
-  kepIndex = KEPEK.indexOf(aktualKep.match(/kepek\/[\w]+\.jpg/)[0]);
+  nagykep.src = event.target.src;
+  kepIndex = KEPEK.indexOf(event.target.attributes["src"].value);
   console.log(kepIndex);
-
-
 }
 
 function kepElore() {
