@@ -12,12 +12,24 @@ body {
 section {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     margin-bottom: 10px;
 }
 
-section button {
+.bal {
+    background: url("../kepek/balra-nyil.svg");
+}
+
+.jobb {
+    background: url("../kepek/jobbra-nyil.svg");
+}
+
+.bal, .jobb {
     width: 50px;
+    border: none;
+    color:transparent;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .nagykep {
