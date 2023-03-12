@@ -19,6 +19,16 @@ function init() {
 
   BAL_GOMB.addEventListener("click", kepHatra);
   JOBB_GOMB.addEventListener("click", kepElore);
+  window.addEventListener("keyup", (e) => {
+    switch (e.key) {
+      case "ArrowLeft":
+        kepHatra();
+        break;
+      case "ArrowRight":
+        kepElore();
+        break;
+    }
+  });
 
   kepGaleriaFeltoltese(galeria);
 }
