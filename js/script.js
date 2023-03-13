@@ -16,12 +16,11 @@ let kepek;
 function init(){
   nagykep = document.querySelector(".nagykep img");
   galeria = document.querySelector("article");
-  const BAL_GOMB = document.querySelector(".bal");
-  const JOBB_GOMB = document.querySelector(".jobb");
-  szamlalo = document.querySelector(".szamlalo");
+  const ELOZO_KEP_GOMB = document.querySelector(".elozo-kep-gomb");
+  const KOVETKEZO_KEP_GOMB = document.querySelector(".kovetkezo-kep-gomb");
 
-  BAL_GOMB.addEventListener("click", kepEloreHatra);
-  JOBB_GOMB.addEventListener("click", kepEloreHatra);
+  ELOZO_KEP_GOMB.addEventListener("click", kepEloreHatra);
+  KOVETKEZO_KEP_GOMB.addEventListener("click", kepEloreHatra);
   window.addEventListener("keyup", kepEloreHatra);
 
   kepGaleriaFeltoltese(galeria);
@@ -55,14 +54,14 @@ function kiskepKattint(event) {
 function kepEloreHatra(event) {
   let celpont = event.target;
   if (
-    (event.type === "click" && celpont.className === "bal") ||
+    (event.type === "click" && celpont.className === "elozo-kep-gomb") ||
     (event.type === "keyup" && event.key === "ArrowLeft")
   ) {
     kepIndex = kepIndex <= 0 ? kepek.length - 1 : kepIndex - 1;
   }
 
   if (
-    (event.type === "click" && celpont.className === "jobb") ||
+    (event.type === "click" && celpont.className === "kovetkezo-kep-gomb") ||
     (event.type === "keyup" && event.key === "ArrowRight")
   ) {
     kepIndex = kepIndex >= kepek.length - 1 ? 0 : kepIndex + 1;
