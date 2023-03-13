@@ -29,21 +29,24 @@ function init() {
 }
 
 function kepGaleriaFeltoltese(galeria) {
-  KEPEK.forEach((k) => {
+  for (let i = 0; i < KEPEK.length; i++) {
     let img = document.createElement("img");
     galeria.appendChild(img);
-    img.src = k;
+    img.src = KEPEK[i];
     img.addEventListener("click", kiskepKattint);
-    img["draggable"] = "false";
-  });
+    img["draggable"] = false;
+    img.setAttribute("index", i)
+  }
 }
 
 function kiskepKattint(event) {
-  nagykep.src = event.target.src;
-  kepIndex = KEPEK.indexOf(event.target.attributes["src"].value);
-  console.log(kepIndex);
+  let celpont = event.target
+  let index_str = celpont.attributes["index"].value;
+
+  nagykep.src = celpont.src;
+  kepIndex = parseInt(index_str)
   szegelyekTorlese(galeria);
-  event.target.classList.add("szegely");
+  celpont.classList.add("szegely");
   szamlaloFrissitese();
 }
 
