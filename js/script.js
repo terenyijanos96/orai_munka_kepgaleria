@@ -25,7 +25,7 @@ function init() {
   nagykepValtoztatasa();
   szamlaloFrissitese();
   kepGaleriaFeltoltese(galeria);
-  szamlaloFrissitese()
+  
 }
 
 function kepGaleriaFeltoltese(galeria) {
