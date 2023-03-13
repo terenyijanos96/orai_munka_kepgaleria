@@ -12,15 +12,15 @@ body {
   align-items: center;
 }
 
-section {
+.nagykep-es-leptetogombok {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.bal,
-.jobb {
+.elozo-kep-gomb,
+.kovetkezo-kep-gomb {
   background: url("../kepek/nyilak.svg");
   background-size: cover;
   width: 60px;
@@ -31,21 +31,21 @@ section {
   cursor: pointer;
 }
 
-.bal {
+.elozo-kep-gomb {
   background-position: left center;
 }
 
-.jobb {
+.kovetkezo-kep-gomb {
   background-position: right center;
 }
 
-.bal:hover,
-.jobb:hover {
+.elozo-kep-gomb:hover,
+.kovetkezo-kep-gomb:hover {
   filter: brightness(70%);
 }
 
-.bal:active,
-.jobb:active {
+.elozo-kep-gomb:active,
+.kovetkezo-kep-gomb:active {
   transform: scale(1.2);
 }
 
@@ -64,7 +64,6 @@ section {
   color: #fff;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 10px;
 }
 
