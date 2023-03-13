@@ -78,6 +78,7 @@ article {
 article img {
   width: 100%;
   border: 3px solid transparent;
+  cursor: pointer
 }
 
 article img.szegely {
