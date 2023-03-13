@@ -1,17 +1,19 @@
 window.addEventListener("load", init);
-const KEPEK = [
+
+let nagykep;
+let kepIndex = 0;
+let galeria;
+let szamlalo;
+let kepek;
+  
+  kepek = [
   "kepek/DSC7025.webp",
   "kepek/DSC7365.webp",
   "kepek/DSC7444.webp",
   "kepek/DSC7515.webp",
   "kepek/DSC73711.webp"
 ];
-let nagykep;
-let kepIndex = 0;
-let galeria;
-let szamlalo;
-
-function init() {
+function init(){
   nagykep = document.querySelector(".nagykep img");
   galeria = document.querySelector("article");
   const BAL_GOMB = document.querySelector(".bal");
@@ -22,51 +24,53 @@ function init() {
   JOBB_GOMB.addEventListener("click", kepEloreHatra);
   window.addEventListener("keyup", kepEloreHatra);
 
+  kepGaleriaFeltoltese(galeria);
+
   nagykepValtoztatasa();
   szamlaloFrissitese();
-  kepGaleriaFeltoltese(galeria);
   szegelyBeallitasa(galeria.children[0]);
 }
 
 function kepGaleriaFeltoltese(galeria) {
-  for (let i = 0; i < KEPEK.length; i++) {
+  for (let i = 0; i < kepek.length; i++) {
     let img = document.createElement("img");
     galeria.appendChild(img);
-    img.src = KEPEK[i];
+    img.src = kepek[i];
     img.addEventListener("click", kiskepKattint);
     img["draggable"] = false;
-    img.setAttribute("index", i)
+    img.setAttribute("index", i);
   }
 }
 
 function kiskepKattint(event) {
-  let celpont = event.target
+  let celpont = event.target;
   let index_str = celpont.attributes["index"].value;
 
-  nagykep.src = celpont.src;
-  szegelyBeallitasa(celpont);
+  kepIndex = parseInt(index_str);
+  nagykepValtoztatasa(celpont.src);
   szamlaloFrissitese();
+  szegelyBeallitasa(celpont);
 }
 
 function kepEloreHatra(event) {
-  let celpont = event.target
+  let celpont = event.target;
   if (
     (event.type === "click" && celpont.className === "bal") ||
     (event.type === "keyup" && event.key === "ArrowLeft")
   ) {
-    kepIndex = kepIndex <= 0 ? KEPEK.length - 1 : kepIndex - 1;
+    kepIndex = kepIndex <= 0 ? kepek.length - 1 : kepIndex - 1;
   }
 
   if (
     (event.type === "click" && celpont.className === "jobb") ||
     (event.type === "keyup" && event.key === "ArrowRight")
   ) {
-  kepIndex = kepIndex >= KEPEK.length - 1 ? 0 : kepIndex + 1;
+    kepIndex = kepIndex >= kepek.length - 1 ? 0 : kepIndex + 1;
   }
 
   nagykepValtoztatasa();
-  szegelyBeallitasa(galeria.children[kepIndex]);
   szamlaloFrissitese();
+  szegelyBeallitasa(galeria.children[kepIndex]);
 }
 
 function nagykepValtoztatasa(kepSrc = kepek[kepIndex]) {
@@ -82,5 +86,6 @@ function szegelyBeallitasa(elem) {
 }
 
 function szamlaloFrissitese() {
-  szamlalo.innerText = `${kepIndex + 1} / ${KEPEK.length}`;
+  const szamlalo = document.querySelector(".szamlalo");
+  szamlalo.innerText = `${kepIndex + 1} / ${kepek.length}`;
 }
