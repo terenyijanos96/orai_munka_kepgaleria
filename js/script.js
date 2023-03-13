@@ -7,12 +7,13 @@ let szamlalo;
 let kepek;
   
   kepek = [
-  "kepek/DSC7025.webp",
-  "kepek/DSC7365.webp",
-  "kepek/DSC7444.webp",
-  "kepek/DSC7515.webp",
-  "kepek/DSC73711.webp"
-];
+  {src: "kepek/DSC7025.webp", alt:"kép"},
+  {src: "kepek/DSC7365.webp", alt:"kép"},
+  {src: "kepek/DSC7444.webp", alt:"kép"},
+  {src: "kepek/DSC7515.webp", alt:"kép"},
+  {src: "kepek/DSC73711.webp", alt:"kép"}
+]
+
 function init(){
   nagykep = document.querySelector(".nagykep img");
   galeria = document.querySelector("article");
@@ -34,7 +35,8 @@ function kepGaleriaFeltoltese(galeria) {
   for (let i = 0; i < kepek.length; i++) {
     let img = document.createElement("img");
     galeria.appendChild(img);
-    img.src = kepek[i];
+    img.src = kepek[i].src;
+    img.alt = kepek[i].alt
     img.addEventListener("click", kiskepKattint);
     img["draggable"] = false;
     img.setAttribute("index", i);
@@ -72,7 +74,7 @@ function kepEloreHatra(event) {
   szegelyBeallitasa(galeria.children[kepIndex]);
 }
 
-function nagykepValtoztatasa(kepSrc = kepek[kepIndex]) {
+function nagykepValtoztatasa(kepSrc = kepek[kepIndex].src) {
   nagykep.src = kepSrc;
 }
 
