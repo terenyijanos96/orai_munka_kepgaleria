@@ -69,14 +69,8 @@ function kepEloreHatra(event) {
   szamlaloFrissitese();
 }
 
-function nagykepValtoztatasa(kepSrc = KEPEK[kepIndex]) {
-    nagykep.src = kepSrc 
-}
-
-function szegelyekTorlese(galeria) {
-  galeria.querySelectorAll("img").forEach((kep) => {
-    kep.classList.remove("szegely");
-  });
+function nagykepValtoztatasa(kepSrc = kepek[kepIndex]) {
+  nagykep.src = kepSrc;
 }
 
 function szegelyBeallitasa(elem) {
