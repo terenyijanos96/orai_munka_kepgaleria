@@ -25,7 +25,7 @@ function init() {
   nagykepValtoztatasa();
   szamlaloFrissitese();
   kepGaleriaFeltoltese(galeria);
-  
+  szegelyBeallitasa(galeria.children[0]);
 }
 
 function kepGaleriaFeltoltese(galeria) {
@@ -44,9 +44,7 @@ function kiskepKattint(event) {
   let index_str = celpont.attributes["index"].value;
 
   nagykep.src = celpont.src;
-  kepIndex = parseInt(index_str)
-  szegelyekTorlese(galeria);
-  celpont.classList.add("szegely");
+  szegelyBeallitasa(celpont);
   szamlaloFrissitese();
 }
 
@@ -67,8 +65,7 @@ function kepEloreHatra(event) {
   }
 
   nagykepValtoztatasa();
-  szegelyekTorlese(galeria);
-  galeria.children[kepIndex].classList.add("szegely");
+  szegelyBeallitasa(galeria.children[kepIndex]);
   szamlaloFrissitese();
 }
 
@@ -80,6 +77,14 @@ function szegelyekTorlese(galeria) {
   galeria.querySelectorAll("img").forEach((kep) => {
     kep.classList.remove("szegely");
   });
+}
+
+function szegelyBeallitasa(elem) {
+  for (let i = 0; i < galeria.children.length; i++) {
+    galeria.children[i].classList.remove("szegely");
+  }
+
+  elem.classList.add("szegely");
 }
 
 function szamlaloFrissitese() {
