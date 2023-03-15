@@ -50,8 +50,7 @@ body {
 }
 
 .nagykep {
-  width: 800px;
-  height: 534px;
+  aspect-ratio: 3 / 2;
 }
 
 .nagykep img {
@@ -77,7 +76,7 @@ article {
 article img {
   width: 100%;
   border: 3px solid transparent;
-  cursor: pointer
+  cursor: pointer;
 }
 
 article img.szegely {
@@ -86,4 +85,56 @@ article img.szegely {
 
 img {
   user-select: none;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    padding: 0;
+  }
+
+  main {
+    position: relative;
+  }
+
+  .nagykep-es-leptetogombok {
+    gap: 0;
+    height: 100%;
+  }
+
+  .elozo-kep-gomb, .kovetkezo-kep-gomb {
+    position: absolute;
+    opacity: 0;
+    width: 6%;
+    height: auto;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+  }
+
+  .elozo-kep-gomb {
+    left: 1%;
+  }
+
+  .nagykep {
+    width: 100%;
+    padding: 0;
+  }
+
+  .kovetkezo-kep-gomb {
+    right: 1%;
+  }
+
+  .elozo-kep-gomb:hover,
+  .kovetkezo-kep-gomb:hover {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px #000);
+  }
+
+  .szamlalo {
+    font-size: clamp(0.6em, 1.6vw, 1.5em);
+    padding: 1%;
+  }
+
+  article img {
+    border: 0.3vw solid transparent;
+  }
 }
