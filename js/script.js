@@ -16,7 +16,7 @@ let kepek;
 
 function init(){
   nagykep = document.querySelector(".nagykep img");
-  galeria = document.querySelector("article");
+  galeria = document.querySelector("article .galeria");
   const ELOZO_KEP_GOMB = document.querySelector(".elozo-kep-gomb");
   const KOVETKEZO_KEP_GOMB = document.querySelector(".kovetkezo-kep-gomb");
 
@@ -88,5 +88,5 @@ function szegelyBeallitasa(elem) {
 
 function szamlaloFrissitese() {
   const szamlalo = document.querySelector(".szamlalo");
-  szamlalo.innerText = `${kepIndex + 1} / ${kepek.length}`;
+  szamlalo.innerText = `${kepIndex + 1} / ${kepek.length} kép`;
 }
