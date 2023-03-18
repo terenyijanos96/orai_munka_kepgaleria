@@ -105,7 +105,7 @@ footer span {
   display: block;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 953px) {
   body {
     padding: 0;
     padding-top: 10px;
